@@ -1,33 +1,66 @@
-      // Previous JavaScript remains the same
+      const navbar = document.querySelector('.navbar');
+      const burgerMenu = document.querySelector('.burger-menu');
+      const navLinks = document.querySelector('.nav-links');
+      const cartCount = document.querySelector('.cart-count');
+      const cartIcon = document.querySelector('.cart-icon');
+      let count = 0;
+      let lastScroll = 0;
 
-      // Navbar Interactions
-      const profileBtn = document.querySelector(".profile-btn");
-      const profileMenu = document.querySelector(".profile-menu");
-      const burger = document.querySelector(".burger");
-      const mobileMenu = document.querySelector(".mobile-menu");
-
-      profileBtn.addEventListener("click", () => {
-        profileMenu.classList.toggle("active");
+      // Scroll handling with throttle
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+          if (!ticking) {
+              window.requestAnimationFrame(() => {
+                  const currentScroll = window.pageYOffset;
+                  if (currentScroll > 50) {
+                      navbar.classList.add('scrolled');
+                  } else {
+                      navbar.classList.remove('scrolled');
+                  }
+                  lastScroll = currentScroll;
+                  ticking = false;
+              });
+              ticking = true;
+          }
       });
 
-      burger.addEventListener("click", () => {
-        burger.classList.toggle("active");
-        mobileMenu.classList.toggle("active");
+      // Burger menu toggle
+      burgerMenu.addEventListener('click', () => {
+          burgerMenu.classList.toggle('active');
+          navLinks.classList.toggle('active');
+          document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
       });
 
-      // Close menus when clicking outside
-      document.addEventListener("click", (e) => {
-        if (!profileBtn.contains(e.target)) {
-          profileMenu.classList.remove("active");
-        }
-        if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) {
-          burger.classList.remove("active");
-          mobileMenu.classList.remove("active");
-        }
+      // Cart counter
+      cartIcon.addEventListener('click', () => {
+          count++;
+          cartCount.textContent = count;
+          cartCount.style.transform = 'scale(1.2)';
+          setTimeout(() => {
+              cartCount.style.transform = 'scale(1)';
+          }, 200);
       });
 
-      // Rest of the previous JavaScript remains the same
-      // Previous JavaScript remains the same
+      // Search functionality
+      const searchBar = document.querySelector('.search-bar');
+
+      searchBar.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter' && searchBar.value.trim() !== '') {
+              alert(`Searching for: ${searchBar.value}`);
+              searchBar.value = '';
+          }
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+          if (!burgerMenu.contains(e.target) && 
+              !navLinks.contains(e.target) && 
+              navLinks.classList.contains('active')) {
+              burgerMenu.classList.remove('active');
+              navLinks.classList.remove('active');
+              document.body.style.overflow = '';
+          }
+      });
 
       // Animate statistics when in view
       const stats = document.querySelectorAll(".stat-number");
