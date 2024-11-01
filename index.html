@@ -3,90 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Black Market</title>
+    <title>Gen4Team Indonesia</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <nav>
-      <div class="nav-left">
-        <a href="#" class="logo">
-          <i class="fas fa-cube"></i>
-          Gen 4 Team
-        </a>
-      </div>
+    <nav class="navbar">
+      <div class="nav-container">
+          <a href="#" class="logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 12h3l7-7 7 7h3L12 2z"/>
+                  <path d="M12 8l-4 4h8l-4-4z"/>
+                  <path d="M12 15l-2 2h4l-2-2z"/>
+                  <line x1="12" y1="17" x2="12" y2="22"/>
+              </svg>
+              Gen4Team
+          </a>
+          
+          <div class="search-container">
+              <i class="ri-search-line search-icon"></i>
+              <input type="text" class="search-bar" placeholder="Search drones, services, locations...">
+          </div>
 
-      <div class="nav-center">
-        <div class="search-container">
-          <i class="fas fa-search search-icon"></i>
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Search for services or equipment..."
-          />
-        </div>
-      </div>
+          <ul class="nav-links">
+              <li><a href="#"><i class="ri-home-4-line"></i>Home</a></li>
+              <li><a href="#"><i class="ri-drone-line"></i>Rentals</a></li>
+              <li><a href="#"><i class="ri-customer-service-2-line"></i>Services</a></li>
+              <li><a href="#"><i class="ri-map-pin-line"></i>Locations</a></li>
+              <li><a href="#"><i class="ri-phone-line"></i>Contact</a></li>
+          </ul>
 
-      <div class="nav-right">
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </div>
+          <div class="cart-icon">
+              <i class="ri-shopping-cart-2-line"></i>
+              <span class="cart-count">0</span>
+          </div>
 
-        <div class="nav-buttons">
-          <button class="nav-btn">
-            <i class="fas fa-bell"></i>
-          </button>
-          <button class="nav-btn profile-btn">
-            <i class="fas fa-user"></i>
-            <div class="profile-menu">
-              <a href="#" class="profile-menu-item">
-                <i class="fas fa-user-circle"></i>
-                My Profile
-              </a>
-              <a href="#" class="profile-menu-item">
-                <i class="fas fa-cog"></i>
-                Settings
-              </a>
-              <a href="#" class="profile-menu-item">
-                <i class="fas fa-history"></i>
-                Rental History
-              </a>
-              <a href="#" class="profile-menu-item">
-                <i class="fas fa-sign-out-alt"></i>
-                Sign Out
-              </a>
-            </div>
-          </button>
-        </div>
+          <div class="burger-menu">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+          </div>
+      </div>
+  </nav>
 
-        <div class="burger">
-          <div class="line"></div>
-        </div>
-      </div>
-    </nav>
-
-    <div class="mobile-menu">
-      <div class="search-container">
-        <i class="fas fa-search search-icon"></i>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search for services or equipment..."
-        />
-      </div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
     <section class="hero-section">
       <div class="overlay"></div>
       <div class="slideshow">
