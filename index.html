@@ -8,6 +8,310 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+                .quote-container {
+            position: relative;
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            perspective: 1000px;
+            background: #f0f0f0;
+            
+        }
+
+        .steel-board {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            min-height: 200px;
+            padding: 30px;
+            transform-style: preserve-3d;
+            animation: gentleSwing 6s ease-in-out infinite;
+        }
+
+        /* Main steel surface with realistic texture */
+        .steel-face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(
+                    45deg,
+                    #1e301a,
+                    #4a4a4a,
+                    #5a5a5a,
+                    #4a4a4a,
+                    #3a3a3a
+                );
+            border-radius: 8px;
+            box-shadow: 
+                inset 0 0 20px rgba(59, 59, 59, 0.8),
+                0 10px 30px rgba(89, 94, 89, 0.4);
+            overflow: hidden;
+        }
+
+        /* Steel texture effect */
+        .steel-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.4;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent 0%,
+                    rgba(255,255,255,0.1) 25%,
+                    transparent 50%,
+                    rgba(255,255,255,0.1) 75%,
+                    transparent 100%
+                ),
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0.1) 0%,
+                    transparent 45%,
+                    transparent 55%,
+                    rgba(255,255,255,0.1) 100%
+                );
+            background-size: 50px 50px;
+        }
+
+        /* Steel rivets */
+        .rivet {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 35% 35%,
+                #535854 0%,
+                #4a4a4a 50%,
+                #2a2a2a 100%
+            );
+            box-shadow: 
+                inset -2px -2px 4px rgba(0,0,0,0.7),
+                inset 2px 2px 4px rgba(255,255,255,0.3),
+                2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Steel edges */
+        .steel-edge {
+            position: absolute;
+            background: #2a2a2a;
+            box-shadow: 
+                inset 0 0 10px rgba(0,0,0,0.8),
+                0 0 5px rgba(0,0,0,0.5);
+        }
+
+        .edge-top { 
+            top: 0; left: 0; right: 0; height: 8px;
+            transform: translateZ(-8px) rotateX(45deg);
+        }
+        .edge-bottom { 
+            bottom: 0; left: 0; right: 0; height: 8px;
+            transform: translateZ(-8px) rotateX(-45deg);
+        }
+        .edge-left { 
+            left: 0; top: 0; bottom: 0; width: 8px;
+            transform: translateZ(-8px) rotateY(-45deg);
+        }
+        .edge-right { 
+            right: 0; top: 0; bottom: 0; width: 8px;
+            transform: translateZ(-8px) rotateY(45deg);
+        }
+
+        .chain-mount {
+            position: absolute;
+            top: -10px;
+            width: 50px;
+            height: 25px;
+            background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+            border-radius: 5px;
+            box-shadow: 
+                inset 0 0 10px rgba(110, 114, 110, 0.8),
+                0 4px 8px rgba(65, 66, 65, 0.4);
+        }
+
+        .chain-mount-left {
+            left: 20%;
+            transform: translateX(-50%);
+        }
+
+        .chain-mount-right {
+            right: 20%;
+            transform: translateX(50%);
+        }
+
+        .chain {
+            position: absolute;
+            top: -115px;
+            width: 5px;
+            height: 170px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: chainSway 4s ease-in-out infinite;
+        }
+
+        .chain-left {
+    left: 20%;
+    transform-origin: top center;
+    animation-delay: -0.5s;
+}
+
+.chain-right {
+    right: 20%;
+    transform-origin: top center;
+    animation-delay: 0.5s;
+}
+
+        .chain-link {
+            width: 20px;
+            height: 30px;
+            margin: -6px 0;
+            background: linear-gradient(
+                135deg,
+                #2f4636 0%,
+                #4a4a4a 45%,
+                #5a5a5a 50%,
+                #4a4a4a 55%,
+                #2a2a2a 100%
+            );
+            border-radius: 40%;
+            box-shadow: 
+                inset 1px 1px 3px rgba(255,255,255,0.2),
+                inset -1px -1px 3px rgba(0,0,0,0.8),
+                2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
+        }
+
+        .chain-link::before,
+        .chain-link::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 8px;
+            background: linear-gradient(to bottom, #3a3a3a, #2a2a2a);
+            border-radius: 4px;
+            left: -1px;
+            box-shadow: 
+                inset 0 2px 2px rgba(255,255,255,0.1),
+                inset 0 -2px 2px rgba(0,0,0,0.8);
+        }
+
+        .chain-link::before { top: -2px; }
+        .chain-link::after { bottom: -2px; }
+
+        .ceiling-mount {
+            position: absolute;
+            top: -150px;
+            width: 80px;
+            height: 30px;
+            background: linear-gradient(to bottom, #969691, #000000);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 
+                0 4px 8px rgba(0,0,0,0.5),
+                inset 0 -2px 4px rgba(255,255,255,0.1);
+        }
+
+        .ceiling-mount-left {
+            left: 20%;
+            transform: translateX(-50%);
+        }
+
+        .ceiling-mount-right {
+            right: 20%;
+            transform: translateX(50%);
+        }
+
+        .quote-text {
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+            font-family: 'Palatino', serif;
+            font-size: clamp(16px, 4vw, 28px);
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        @keyframes gentleSwing {
+            0% { 
+                transform: rotate3d(1, 0, 0, 2deg) rotate3d(0, 1, 0, 1deg); 
+            }
+            50% { 
+                transform: rotate3d(1, 0, 0, -2deg) rotate3d(0, 1, 0, -1deg); 
+            }
+            100% { 
+                transform: rotate3d(1, 0, 0, 2deg) rotate3d(0, 1, 0, 1deg); 
+            }
+        }
+
+        @keyframes chainSway {
+    0% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+    100% { transform: rotate(-2deg); }
+}
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .steel-board {
+                padding: 20px;
+                min-height: 180px;
+            }
+
+            .chain {
+                height: 100px;
+                top: -100px;
+            }
+
+            .ceiling-mount {
+                top: -100px;
+                width: 60px;
+                height: 25px;
+            }
+
+            .rivet {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .steel-board {
+                padding: 15px;
+                width: 95%;
+                min-height: 160px;
+            }
+
+            .chain {
+                height: 80px;
+                top: -80px;
+            }
+
+            .ceiling-mount {
+                top: -105px;
+                width: 50px;
+                height: 20px;
+            }
+
+            .chain-mount {
+                width: 40px;
+                height: 20px;
+            }
+
+            .rivet {
+                width: 10px;
+                height: 10px;
+            }
+        }
                 .whatsapp-container {
             position: fixed;
             bottom: 40px;
@@ -756,6 +1060,7 @@
       display: flex;
       flex-direction: column;
       gap: 4rem;
+      margin-top: 50px;
     }
 
     .product-card {
@@ -1810,11 +2115,46 @@
             <div class="hero-nav"></div>
           </div>
           </div>
+
           <section class="products-section">
-              <h2 class="section-title">Rasulullah ﷺ bersabda:
-                "Allah tidak menurunkan suatu penyakit kecuali Dia juga menurunkan obat untuknya."
-                (HR. Bukhari, no. 5678)</h2>
+            <div class="quote-container">
+                <div class="steel-board">
+                    <!-- Ceiling mounts -->
+                    <div class="ceiling-mount ceiling-mount-left"></div>
+                    <div class="ceiling-mount ceiling-mount-right"></div>
+                    
+                    <!-- Chains -->
+                    <div class="chain chain-left" id="leftChain"></div>
+                    <div class="chain chain-right" id="rightChain"></div>
+                    
+                    <!-- Chain mounts on board -->
+                    <div class="chain-mount chain-mount-left"></div>
+                    <div class="chain-mount chain-mount-right"></div>
+                    
+                    <!-- Steel board faces -->
+                    <div class="steel-face">
+                        <div class="steel-texture"></div>
+                        <!-- Rivets -->
+                        <div class="rivet" style="top: 15px; left: 15px"></div>
+                        <div class="rivet" style="top: 15px; right: 15px"></div>
+                        <div class="rivet" style="bottom: 15px; left: 15px"></div>
+                        <div class="rivet" style="bottom: 15px; right: 15px"></div>
+                    </div>
+                    
+                    <!-- Steel edges -->
+                    <div class="steel-edge edge-top"></div>
+                    <div class="steel-edge edge-bottom"></div>
+                    <div class="steel-edge edge-left"></div>
+                    <div class="steel-edge edge-right"></div>
+                    
+                    <!-- Quote text -->
+                    <p class="quote-text">Rasulullah ﷺ bersabda:
+                        "Allah tidak menurunkan suatu penyakit kecuali Dia juga menurunkan obat untuknya."
+                        (HR. Bukhari, no. 5678).</p>
+                </div>
+            </div>
               <div class="products-container">
+                
                 <!-- Product 1 -->
                 <div class="product-card">
                   <div class="product-content">
@@ -2699,6 +3039,24 @@ document.addEventListener('DOMContentLoaded', function() {
             updateTooltip();
             setInterval(updateTooltip, 60000); // Update every minute
         });
+                // Create chain links dynamically
+                function createChainLinks() {
+            const chains = document.querySelectorAll('.chain');
+            const numberOfLinks = 6;
+
+            chains.forEach(chain => {
+                for(let i = 0; i < numberOfLinks; i++) {
+                    const link = document.createElement('div');
+                    link.className = 'chain-link';
+                    chain.appendChild(link);
+                }
+            });
+        }
+
+        // Initialize
+        window.onload = function() {
+            createChainLinks();
+        };
     </script>
 </body>
 </html>
