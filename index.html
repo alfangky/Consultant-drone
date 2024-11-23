@@ -8,6 +8,151 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+                .whatsapp-container {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 100;
+        }
+
+        .whatsapp-float {
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #22c15e;
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+        }
+
+        .tooltip {
+            position: absolute;
+            right: 75px;
+            background-color: #fff;
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            width: max-content;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent transparent #fff;
+        }
+
+        .whatsapp-float:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 85px;
+        }
+
+        .whatsapp-label {
+            background-color: #25D366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            position: absolute;
+            right: 75px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-container:hover .whatsapp-label {
+            opacity: 1;
+            visibility: visible;
+            right: 85px;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .whatsapp-container {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+            }
+
+            .tooltip, .whatsapp-label {
+                display: none;
+            }
+        }
+
+        /* Optional: Add status dot */
+        .status-dot {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Demo content styles - you can remove this */
+        .demo-content {
+            height: 150vh;
+            padding: 20px;
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+        }
         .containerx {
             position: center;
         }
@@ -1851,6 +1996,15 @@
             © 2024 Griya Sehat Sumbersuci.
         </div>
     </footer>
+    <!-- Enhanced WhatsApp Float Button -->
+    <div class="whatsapp-container">
+        <a href="https://wa.me/6281355085757?text=Assalamualaikum%20I%20Saya%20mau%20mencoba%20terapi" class="whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <div class="status-dot"></div>
+            <span class="tooltip">Need help? Chat with us! 👋</span>
+        </a>
+        <div class="whatsapp-label">Chat dengan kami!</div>
+    </div>
     <script>
               // Toggle mobile menu with smooth animation
       const toggle = document.querySelector(".n4v-toggle");
@@ -2484,6 +2638,43 @@
     TeamMembersAnt.init();
   }
 })();
+document.addEventListener('DOMContentLoaded', function() {
+            const whatsappFloat = document.querySelector('.whatsapp-float');
+            const container = document.querySelector('.whatsapp-container');
+            
+            // Add entrance animation
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.5s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 500);
+
+            // Add click tracking (optional)
+            whatsappFloat.addEventListener('click', function() {
+                console.log('WhatsApp button clicked');
+                // You can add analytics tracking here
+            });
+
+            // Optional: Show different messages based on time
+            function updateTooltip() {
+                const hour = new Date().getHours();
+                const tooltip = document.querySelector('.tooltip');
+                
+                if (hour < 12) {
+                    tooltip.textContent = "Selamat pagi! Ada yang bisa dibantu? 👋";
+                } else if (hour < 17) {
+                    tooltip.textContent = "Selamat siang! Ada yang bisa dibantu? 👋";
+                } else {
+                    tooltip.textContent = "Selamat malam! Ada yang bisa dibantu? 👋";
+                }
+            }
+            
+            updateTooltip();
+            setInterval(updateTooltip, 60000); // Update every minute
+        });
     </script>
 </body>
 </html>
