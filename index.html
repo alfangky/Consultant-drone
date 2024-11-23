@@ -193,281 +193,289 @@
             color: #1877F2;
         }
         * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      .dr0ne-n4v {
-        background: rgba(87, 167, 56, 0.95);
-        padding: 1rem 2rem;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .dr0ne-n4v.scrolled {
-        padding: 0.5rem 2rem;
-        background: rgba(87, 167, 56, 0.95);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
-      }
-
-      .n4v-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .n4v-logo {
-        font-size: 1.5rem;
-        font-weight: 900;
-        color: #e9dbdb;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        transform: translateY(0);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .n4v-logo:hover {
-        transform: translateY(-2px);
-      }
-
-      .n4v-logo span {
-        color: #ffc965;
-        font-weight: 900;
-      }
-
-      .n4v-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-        align-items: center;
-      }
-
-      .n4v-link-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: #000000;
-        text-decoration: none;
-        font-weight: 500;
-        position: relative;
-        padding: 0.5rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .n4v-link-item svg {
-        width: 18px;
-        height: 18px;
-        stroke: currentColor;
-        stroke-width: 2;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        color:#379226;
-      }
-
-      .n4v-link-item:hover {
-        color: #ffffff;
-      }
-
-      .n4v-link-item:hover svg {
-        transform: translateY(-2px);
-      }
-
-      .n4v-link-item::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #ffffff;
-        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .n4v-link-item:hover::after {
-        width: 100%;
-      }
-
-      .n4v-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-        cursor: pointer;
-        padding: 0.5rem;
-      }
-
-      .n4v-toggle span {
-        width: 25px;
-        height: 3px;
-        background: #e0dddd;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .n4v-icons {
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
-        margin-left: 2rem;
-      }
-
-      .ic0n-btn {
-        position: relative;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .ic0n-btn:hover {
-        transform: translateY(-2px) scale(1.05);
-      }
-
-      .ic0n-btn svg {
-        width: 24px;
-        height: 24px;
-        fill: none;
-        stroke: #fdfeff;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        transition: stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .ic0n-btn:hover svg {
-        stroke: #000000;
-      }
-
-      .c4rt-count {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        background: #e74c3c;
-        color: white;
-        font-size: 0.75rem;
-        font-weight: bold;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-
-      @keyframes popIn {
-        0% {
-          transform: scale(0);
-        }
-        70% {
-          transform: scale(1.2);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      .dr0pdown {
-        position: absolute;
-        top: 120%;
-        right: 0;
-        background: rgba(87, 167, 56, 0.95);
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        padding: 1rem;
-        min-width: 200px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-
-      .ic0n-btn.active .dr0pdown {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      .dr0pdown-item {
-        padding: 0.75rem 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        color: #000000;
-        text-decoration: none;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 8px;
-      }
-
-      .dr0pdown-item svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .dr0pdown-item:hover {
-        background: #000000;
-        color: #000000;
-        transform: translateX(5px);
-      }
-
-      @media (max-width: 768px) {
-        .n4v-toggle {
-          display: flex;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        .n4v-links {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          flex-direction: column;
-          gap: 0;
-          background: rgba(87, 167, 56, 0.95);
-          padding: 1rem;
-          transform: translateY(-100%);
-          opacity: 0;
-          pointer-events: none;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
         }
 
-        .n4v-links.active {
-          transform: translateY(0);
-          opacity: 1;
-          pointer-events: all;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        .navbar.scrolled {
+            padding: 0.75rem 2rem;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .n4v-link-item {
-          padding: 1rem 2rem;
-          justify-content: center;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .n4v-toggle.active span:nth-child(1) {
-          transform: translateY(7px) rotate(45deg);
+        .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.nav-logo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #57A738;
         }
 
-        .n4v-toggle.active span:nth-child(2) {
-          opacity: 0;
+        .brand-text span {
+            color: #304D33;
         }
 
-        .n4v-toggle.active span:nth-child(3) {
-          transform: translateY(-7px) rotate(-45deg);
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
         }
 
-        .n4v-icons {
-          margin: 1rem 0;
-          justify-content: center;
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
         }
-      }
+
+        .nav-link svg {
+            width: 20px;
+            height: 20px;
+            stroke: #57A738;
+            stroke-width: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #57A738;
+        }
+
+        .nav-link:hover svg {
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #57A738;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .icon-btn {
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .icon-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke: #57A738;
+            stroke-width: 2;
+            transition: all 0.3s ease;
+        }
+
+        .icon-btn:hover svg {
+            stroke: #304D33;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 120%;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            padding: 0.75rem;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .icon-btn.active .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .dropdown-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: #57A738;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+            color: #57A738;
+            transform: translateX(5px);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 2px;
+            background: #57A738;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+                z-index: 100;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 80%;
+                max-width: 400px;
+                flex-direction: column;
+                gap: 1rem;
+                background: white;
+                padding: 5rem 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-link {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 1rem;
+            }
+
+            .nav-icons {
+                width: 100%;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .dropdown {
+                position: fixed;
+                width: calc(80% - 4rem);
+                max-width: 360px;
+            }
+        }
 
       .hero-wrapper {
         padding-top: 70px;
@@ -1643,125 +1651,121 @@
 </head>
 <body class="min-h-screen">
     <div class="content flex-grow">
-        <nav class="dr0ne-n4v">
-            <div class="n4v-container">
-              <a href="#" class="n4v-logo"> GRIYA<span>SEHAT</span> </a>
-              <div class="n4v-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <ul class="n4v-links">
-                <li>
-                  <a href="#home" class="n4v-link-item">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                    </svg>
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" class="n4v-link-item">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                      <path d="M2 17l10 5 10-5" />
-                      <path d="M2 12l10 5 10-5" />
-                    </svg>
-                    Sertifikat
-                  </a>
-                </li>
-      
-                <li>
-                  <a href="#consulting" class="n4v-link-item">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                      <polyline points="10 17 15 12 10 7" />
-                      <line x1="15" y1="12" x2="3" y2="12" />
-                    </svg>
-                    Terapis
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" class="n4v-link-item">
-                    <svg viewBox="0 0 24 24">
-                      <path
-                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                      />
-                      <polyline points="22,6 12,13 2,6" />
-                    </svg>
-                    Hubungi kami
-                  </a>
-                </li>
-                <li class="n4v-icons">
-                  <button class="ic0n-btn" id="c4rt-btn">
-                    <svg viewBox="0 0 24 24">
-                      <path
-                        d="M9 20a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-7-3h7a1 1 0 0 0 .962-.725l3-10A1 1 0 0 0 19 5H5.82L5.1 2.725A1 1 0 0 0 4.1 2H2"
-                      />
-                    </svg>
-                    <span class="c4rt-count">3</span>
-                    <div class="dr0pdown">
-                      <a href="#" class="dr0pdown-item">
-                        <svg viewBox="0 0 24 24">
-                          <circle cx="9" cy="21" r="1" />
-                          <circle cx="20" cy="21" r="1" />
-                          <path
-                            d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                          />
-                        </svg>
-                        Cart Items (3)
-                      </a>
-                      <a href="#" class="dr0pdown-item">
-                        <svg viewBox="0 0 24 24">
-                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                          <circle cx="9" cy="7" r="4" />
-                          <polyline points="16 11 18 13 22 9" />
-                        </svg>
-                        Checkout
-                      </a>
-                      <a href="#" class="dr0pdown-item">
-                        <svg viewBox="0 0 24 24">
-                          <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        Order History
-                      </a>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="nav-brand">
+                    <div class="nav-logo">
+                        <img src="logoku1.png" alt="GriyaSehat Logo">
                     </div>
-                  </button>
-                  <button class="ic0n-btn" id="pr0file-btn">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
-                    <div class="dr0pdown">
-                      <a href="#" class="dr0pdown-item">
-                        <svg viewBox="0 0 24 24">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                          <circle cx="12" cy="7" r="4" />
-                        </svg>
-                        My Profile
-                      </a>
-                      <a href="#" class="dr0pdown-item">
-                        <svg viewBox="0 0 24 24">
-                          <path
-                            d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"
-                          />
-                        </svg>
-                        Settings
-                      </a>
-                      <a href="#" class="dr0pdown-item">
-                        <svg viewBox="0 0 24 24">
-                          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                          <polyline points="16 17 21 12 16 7" />
-                          <line x1="21" y1="12" x2="9" y2="12" />
-                        </svg>
-                        Sign Out
-                      </a>
-                    </div>
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </nav>
+                    <div class="brand-text">GRIYA<span>SEHAT</span></div>
+                </a>
+                
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+    
+                <ul class="nav-links">
+                    <li>
+                        <a href="#home" class="nav-link">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 22V12h6v10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services" class="nav-link">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 4L12 14.01l-3-3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Sertifikat
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#consulting" class="nav-link">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Terapis
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="nav-link">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 6l-10 7L2 6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Hubungi kami
+                        </a>
+                    </li>
+                    <li class="nav-icons">
+                        <button class="icon-btn" id="cart-btn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M9 20a1 1 0 100 2 1 1 0 000-2zm7 0a1 1 0 100 2 1 1 0 000-2zm-7-3h7a1 1 0 00.962-.725l3-10A1 1 0 0019 5H5.82L5.1 2.725A1 1 0 004.1 2H2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="cart-count">3</span>
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <circle cx="9" cy="21" r="1"/>
+                                        <circle cx="20" cy="21" r="1"/>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                                    </svg>
+                                    Cart Items (3)
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                        <path d="M22 4L12 14.01l-3-3"/>
+                                    </svg>
+                                    Checkout
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                    Order History
+                                </a>
+                            </div>
+                        </button>
+                        <button class="icon-btn" id="profile-btn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-item">
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                    My Profile
+                                </a>
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-item">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <circle cx="12" cy="12" r="3"/>
+                                            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                                        </svg>
+                                        Settings
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+                                            <polyline points="16 17 21 12 16 7"/>
+                                            <line x1="21" y1="12" x2="9" y2="12"/>
+                                        </svg>
+                                        Sign Out
+                                    </a>
+                                </div>
+                            </nav>
       
           <div class="hero-wrapper">
             <div
@@ -2004,93 +2008,115 @@
         <div class="whatsapp-label">Chat dengan kami!</div>
     </div>
     <script>
-              // Toggle mobile menu with smooth animation
-      const toggle = document.querySelector(".n4v-toggle");
-      const nav = document.querySelector(".n4v-links");
-      const navbar = document.querySelector(".dr0ne-n4v");
-
-      toggle.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggle.classList.toggle("active");
-        nav.classList.toggle("active");
-      });
-
-      // Enhanced dropdown handling for cart and profile
-      const iconBtns = document.querySelectorAll(".ic0n-btn");
-
-      iconBtns.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          // Smooth transition for closing other dropdowns
-          iconBtns.forEach((otherBtn) => {
-            if (otherBtn !== btn) {
-              otherBtn.classList.remove("active");
-            }
-          });
-          // Toggle with slight delay for smooth animation
-          setTimeout(() => {
-            btn.classList.toggle("active");
-          }, 50);
-        });
-      });
-
-      // Enhanced click-outside handling
-      document.addEventListener("click", (e) => {
-        // Smooth closing of dropdowns
-        iconBtns.forEach((btn) => {
-          if (btn.classList.contains("active")) {
-            btn.classList.remove("active");
-          }
-        });
-      });
-
-      // Enhanced mobile menu click-outside handling
-      document.addEventListener("click", (e) => {
-        if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-          toggle.classList.remove("active");
-          nav.classList.remove("active");
-        }
-      });
-
-      // Enhanced scroll effect with throttling
-      let lastScrollPosition = 0;
-      let ticking = false;
-
-      window.addEventListener("scroll", () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            const currentScroll = window.scrollY;
-            if (currentScroll > 50) {
-              navbar.classList.add("scrolled");
-            } else {
-              navbar.classList.remove("scrolled");
-            }
-            lastScrollPosition = currentScroll;
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-
-      // Smooth mobile menu link clicking
-      const navLinks = document.querySelectorAll(".n4v-link-item");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          // Add small delay for smooth animation
-          setTimeout(() => {
-            toggle.classList.remove("active");
-            nav.classList.remove("active");
-          }, 100);
-        });
-      });
-
-      // Add hover effect for dropdown items
-      const dropdownItems = document.querySelectorAll(".dr0pdown-item");
-      dropdownItems.forEach((item) => {
-        item.addEventListener("mouseenter", () => {
-          item.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
-        });
-      });
+   // Enhanced Navigation Functionality
+   document.addEventListener('DOMContentLoaded', function() {
+                                const navbar = document.querySelector('.navbar');
+                                const toggle = document.querySelector('.nav-toggle');
+                                const nav = document.querySelector('.nav-links');
+                                const iconBtns = document.querySelectorAll('.icon-btn');
+                                let isMenuOpen = false;
+                    
+                                // Scroll Handler with throttling
+                                let lastScrollPosition = 0;
+                                let ticking = false;
+                    
+                                function handleScroll() {
+                                    if (!ticking) {
+                                        window.requestAnimationFrame(() => {
+                                            const currentScroll = window.pageYOffset;
+                                            navbar.classList.toggle('scrolled', currentScroll > 50);
+                                            lastScrollPosition = currentScroll;
+                                            ticking = false;
+                                        });
+                                        ticking = true;
+                                    }
+                                }
+                    
+                                window.addEventListener('scroll', handleScroll, { passive: true });
+                    
+                                // Mobile Menu Toggle
+                                toggle.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                    isMenuOpen = !isMenuOpen;
+                                    toggle.classList.toggle('active');
+                                    nav.classList.toggle('active');
+                                    
+                                    // Prevent body scroll when menu is open
+                                    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+                                });
+                    
+                                // Dropdown Management
+                                iconBtns.forEach(btn => {
+                                    btn.addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                        
+                                        // Close other dropdowns
+                                        iconBtns.forEach(otherBtn => {
+                                            if (otherBtn !== btn && otherBtn.classList.contains('active')) {
+                                                otherBtn.classList.remove('active');
+                                            }
+                                        });
+                    
+                                        // Toggle current dropdown with animation
+                                        btn.classList.toggle('active');
+                                    });
+                    
+                                    // Handle dropdown items
+                                    const dropdownItems = btn.querySelectorAll('.dropdown-item');
+                                    dropdownItems.forEach(item => {
+                                        item.addEventListener('click', (e) => {
+                                            e.stopPropagation();
+                                            // Add animation before closing
+                                            setTimeout(() => {
+                                                btn.classList.remove('active');
+                                            }, 100);
+                                        });
+                                    });
+                                });
+                    
+                                // Close dropdowns when clicking outside
+                                document.addEventListener('click', () => {
+                                    iconBtns.forEach(btn => btn.classList.remove('active'));
+                                });
+                    
+                                // Handle mobile menu links
+                                const navLinks = document.querySelectorAll('.nav-link');
+                                navLinks.forEach(link => {
+                                    link.addEventListener('click', () => {
+                                        if (window.innerWidth <= 768) {
+                                            isMenuOpen = false;
+                                            toggle.classList.remove('active');
+                                            nav.classList.remove('active');
+                                            document.body.style.overflow = '';
+                                        }
+                                    });
+                                });
+                    
+                                // Close mobile menu on resize if open
+                                let resizeTimer;
+                                window.addEventListener('resize', () => {
+                                    clearTimeout(resizeTimer);
+                                    resizeTimer = setTimeout(() => {
+                                        if (window.innerWidth > 768 && isMenuOpen) {
+                                            isMenuOpen = false;
+                                            toggle.classList.remove('active');
+                                            nav.classList.remove('active');
+                                            document.body.style.overflow = '';
+                                        }
+                                    }, 250);
+                                });
+                    
+                                // Add hover effect for interactive elements
+                                const interactiveElements = document.querySelectorAll('.nav-link, .dropdown-item, .icon-btn');
+                                interactiveElements.forEach(element => {
+                                    element.addEventListener('mouseenter', () => {
+                                        element.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                                    });
+                                });
+                    
+                                // Initialize navbar state
+                                handleScroll();
+                            });
       document.addEventListener("DOMContentLoaded", () => {
         const slides = document.querySelectorAll(".hero-slide");
         const nav = document.querySelector(".hero-nav");
