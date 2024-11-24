@@ -37,6 +37,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+
 .containerx {
     width: 100%;
     max-width: 1200px;
@@ -45,405 +46,117 @@
     padding-top: 10px;
     padding-bottom: 20px;
 }
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
 
 .h34d3r {
-    background: #148f1e;
-    padding: clamp(20px, 5vw, 40px);
     position: relative;
-    overflow: hidden;
+    text-align: center;
+    padding: 40px 20px;
 }
 
-.h34d3r::before {
-    content: '';
+/* Background Circles */
+.circle-bg {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
-    z-index: 1;
+    z-index: -1;
 }
 
-.h34d3r-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
 }
 
 .h34d3r-good {
-    color: #ffffff;
-    font-size: clamp(24px, 4vw, 36px);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-    transform: translateY(0);
-    transition: var(--transition);
-    text-align: center;
-    font-family:sans-serif;
+    font-size: clamp(32px, 10vw, 60px);
+    font-weight: 800;
+    background: linear-gradient(135deg, #52752a, #2eb32e, #296140);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    animation: gradient 8s ease infinite;
+    background-size: 300% 300%;
+    position: relative;
+    z-index: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
 }
 
 .h34d3r-best {
-    color: rgba(255,255,255,0.9);
-    font-size: clamp(16px, 2.5vw, 20px);
-    font-weight: 400;
+    text-shadow: 0 0.5px #f3f4f6;
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 500;
+    color: #000000;
     max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
     position: relative;
-    padding-left: 15px;
-    border-left: 3px solid rgba(255,255,255,0.6);
-    transition: var(--transition);
+    z-index: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -20px) rotate(10deg); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-15px, 15px) rotate(-8deg); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(15px, 10px) rotate(5deg); }
+}
+
+@keyframes float4 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-10px, -15px) rotate(-12deg); }
+}
+
+/* Glass effect for text container */
+.text-container {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Hover Effects */
-.h34d3r:hover .h34d3r-good {
-    transform: translateY(-2px);
+.h34d3r-good:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
 }
 
-.h34d3r:hover .h34d3r-best {
-    border-left-color: var(--text-light);
-}
-
-/* Card Effect */
-.h34d3r {
-    border-radius: 12px;
-    box-shadow: 
-        0 4px 6px -1px rgba(0,0,0,0.1),
-        0 2px 4px -1px rgba(0,0,0,0.06);
-    transition: var(--transition);
-}
-
-.h34d3r:hover {
-    box-shadow: 
-        0 10px 15px -3px rgba(0,0,0,0.1),
-        0 4px 6px -2px rgba(0,0,0,0.05);
-    transform: translateY(-2px);
-}
-
-/* Responsive Design */
+/* Media Queries */
 @media (max-width: 768px) {
-    .h34d3r {
-        border-radius: 8px;
+    .circle {
+        opacity: 0.5;
     }
     
-    .h34d3r-content {
-        gap: 10px;
-    }
-}
-
-@media (max-width: 480px) {
     .h34d3r {
-        padding: 20px;
-    }
-    
-    .h34d3r-best {
-        padding-left: 10px;
+        padding: 20px 10px;
     }
 }
-                .quote-container {
-            position: relative;
-            padding-top: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            perspective: 1000px;
-            background: #f0f0f0;
-            
-        }
-
-        .steel-board {
-            position: relative;
-            width: 90%;
-            max-width: 600px;
-            min-height: 200px;
-            padding: 30px;
-            transform-style: preserve-3d;
-            animation: gentleSwing 6s ease-in-out infinite;
-        }
-
-        /* Main steel surface with realistic texture */
-        .steel-face {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(
-                    45deg,
-                    #1e301a,
-                    #4a4a4a,
-                    #5a5a5a,
-                    #4a4a4a,
-                    #3a3a3a
-                );
-            border-radius: 8px;
-            box-shadow: 
-                inset 0 0 20px rgba(59, 59, 59, 0.8),
-                0 10px 30px rgba(89, 94, 89, 0.4);
-            overflow: hidden;
-        }
-
-        /* Steel texture effect */
-        .steel-texture {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.4;
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent 0%,
-                    rgba(255,255,255,0.1) 25%,
-                    transparent 50%,
-                    rgba(255,255,255,0.1) 75%,
-                    transparent 100%
-                ),
-                linear-gradient(
-                    180deg,
-                    rgba(255,255,255,0.1) 0%,
-                    transparent 45%,
-                    transparent 55%,
-                    rgba(255,255,255,0.1) 100%
-                );
-            background-size: 50px 50px;
-        }
-
-        /* Steel rivets */
-        .rivet {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: radial-gradient(
-                circle at 35% 35%,
-                #535854 0%,
-                #4a4a4a 50%,
-                #2a2a2a 100%
-            );
-            box-shadow: 
-                inset -2px -2px 4px rgba(0,0,0,0.7),
-                inset 2px 2px 4px rgba(255,255,255,0.3),
-                2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        /* Steel edges */
-        .steel-edge {
-            position: absolute;
-            background: #2a2a2a;
-            box-shadow: 
-                inset 0 0 10px rgba(0,0,0,0.8),
-                0 0 5px rgba(0,0,0,0.5);
-        }
-
-        .edge-top { 
-            top: 0; left: 0; right: 0; height: 8px;
-            transform: translateZ(-8px) rotateX(45deg);
-        }
-        .edge-bottom { 
-            bottom: 0; left: 0; right: 0; height: 8px;
-            transform: translateZ(-8px) rotateX(-45deg);
-        }
-        .edge-left { 
-            left: 0; top: 0; bottom: 0; width: 8px;
-            transform: translateZ(-8px) rotateY(-45deg);
-        }
-        .edge-right { 
-            right: 0; top: 0; bottom: 0; width: 8px;
-            transform: translateZ(-8px) rotateY(45deg);
-        }
-
-        .chain-mount {
-            position: absolute;
-            top: -10px;
-            width: 50px;
-            height: 25px;
-            background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
-            border-radius: 5px;
-            box-shadow: 
-                inset 0 0 10px rgba(110, 114, 110, 0.8),
-                0 4px 8px rgba(65, 66, 65, 0.4);
-        }
-
-        .chain-mount-left {
-            left: 20%;
-            transform: translateX(-50%);
-        }
-
-        .chain-mount-right {
-            right: 20%;
-            transform: translateX(50%);
-        }
-
-        .chain {
-            position: absolute;
-            top: -10px;
-            width: 5px;
-            height: 170px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: chainSway 4s ease-in-out infinite;
-        }
-
-        .chain-left {
-    left: 20%;
-    transform-origin: top center;
-    animation-delay: -0.5s;
-}
-
-.chain-right {
-    right: 20%;
-    transform-origin: top center;
-    animation-delay: 0.5s;
-}
-
-        .chain-link {
-            width: 20px;
-            height: 50px;
-            margin: -6px 0;
-            background: linear-gradient(
-                135deg,
-                #2f4636 0%,
-                #4a4a4a 45%,
-                #5a5a5a 50%,
-                #4a4a4a 55%,
-                #2a2a2a 100%
-            );
-            border-radius: 40%;
-            box-shadow: 
-                inset 1px 1px 3px rgba(255,255,255,0.2),
-                inset -1px -1px 3px rgba(0,0,0,0.8),
-                2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.3s;
-        }
-
-        .chain-link::before,
-        .chain-link::after {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 8px;
-            background: linear-gradient(to bottom, #3a3a3a, #2a2a2a);
-            border-radius: 4px;
-            left: -1px;
-            box-shadow: 
-                inset 0 2px 2px rgba(255,255,255,0.1),
-                inset 0 -2px 2px rgba(0,0,0,0.8);
-        }
-
-        .chain-link::before { top: -2px; }
-        .chain-link::after { bottom: -2px; }
-
-        .ceiling-mount {
-            position: absolute;
-            top: -40px;
-            width: 80px;
-            height: 30px;
-            background: linear-gradient(to bottom, #969691, #000000);
-            border-radius: 0 0 8px 8px;
-            box-shadow: 
-                0 4px 8px rgba(0,0,0,0.5),
-                inset 0 -2px 4px rgba(255,255,255,0.1);
-        }
-
-        .ceiling-mount-left {
-            left: 20%;
-            transform: translateX(-50%);
-        }
-
-        .ceiling-mount-right {
-            right: 20%;
-            transform: translateX(50%);
-        }
-
-        .quote-text {
-            position: relative;
-            z-index: 1;
-            color: #ffffff;
-            font-family: 'Palatino', serif;
-            font-size: clamp(16px, 4vw, 28px);
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-
-        @keyframes gentleSwing {
-            0% { 
-                transform: rotate3d(1, 0, 0, 2deg) rotate3d(0, 1, 0, 1deg); 
-            }
-            50% { 
-                transform: rotate3d(1, 0, 0, -2deg) rotate3d(0, 1, 0, -1deg); 
-            }
-            100% { 
-                transform: rotate3d(1, 0, 0, 2deg) rotate3d(0, 1, 0, 1deg); 
-            }
-        }
-
-        @keyframes chainSway {
-    0% { transform: rotate(-2deg); }
-    50% { transform: rotate(2deg); }
-    100% { transform: rotate(-2deg); }
-}
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .steel-board {
-                padding: 20px;
-                min-height: 180px;
-            }
-
-            .chain {
-                height: 100px;
-                top: -100px;
-            }
-
-            .ceiling-mount {
-                top: -100px;
-                width: 60px;
-                height: 25px;
-            }
-
-            .rivet {
-                width: 12px;
-                height: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .steel-board {
-                padding: 15px;
-                width: 95%;
-                min-height: 160px;
-            }
-
-            .chain {
-                height: 80px;
-                top: -25px;
-            }
-
-            .ceiling-mount {
-                top: -43px;
-                width: 50px;
-                height: 15px;
-            }
-
-            .chain-mount {
-                width: 40px;
-                height: 20px;
-            }
-
-            .rivet {
-                width: 10px;
-                height: 10px;
-            }
-        }
                 .whatsapp-container {
             position: fixed;
             bottom: 40px;
@@ -994,7 +707,7 @@
 
       .hero-btn {
         display: inline-block;
-        padding: 18px 35px;
+        padding: 15px 20px;
         background: transparent;
         color: white;
         text-decoration: none;
@@ -1107,7 +820,7 @@
 
       @media (max-width: 768px) {
         .hero-title {
-          font-size: 2.8rem;
+          font-size: 1rem;
         }
 
         .hero-text {
@@ -1116,7 +829,7 @@
         }
 
         .hero-btn {
-          padding: 15px 30px;
+          padding: 10px 10px;
           font-size: 1rem;
         }
 
@@ -1127,7 +840,7 @@
 
       @media (max-width: 480px) {
         .hero-title {
-          font-size: 2.2rem;
+          font-size: 2rem;
           letter-spacing: 1px;
         }
 
@@ -1137,7 +850,7 @@
         }
 
         .hero-btn {
-          padding: 12px 25px;
+          padding: 5px 25px;
           font-size: 0.9rem;
         }
       }
@@ -2056,11 +1769,8 @@
               style="background: url('bekamz.png') center/cover no-repeat"
             >
               <div class="hero-content">
-                <h1 class="hero-title">terapi bekam</h1>
-                                  <p class="hero-text">
-                    pengobatan yang dianjurkan oleh Nabi Muhammad ﷺ, dan dikenal sebagai salah satu bentuk thibbun nabawi (pengobatan ala Nabi).
-                </p>
-                <a href="info.html" class="hero-btn">klik untuk info & booking!</a>
+                <h1 class="hero-title">GRIYA SEHAT SUMBERSUCI</h1>
+                <a href="info.html" class="hero-btn">klik untuk booking!</a>
               </div>
             </div>
             <div
@@ -2068,11 +1778,8 @@
               style="background: url('akupuntur1.jpg') center/cover no-repeat"
             >
               <div class="hero-content">
-                <h1 class="hero-title">terapi akupunktur</h1>
-                                  <p class="hero-text">
-                    seni pengobatan kuno yang merangsang titik-titik energi tubuh untuk meningkatkan sirkulasi, meredakan nyeri, dan memulihkan keseimbangan alami. Solusi aman dan alami untuk kesehatan holistik Anda.
-                </p>
-                <a href="info.html" class="hero-btn">klik untuk info & booking!</a>
+                <h1 class="hero-title">BERPENGALAMAN</h1>
+                <a href="info.html" class="hero-btn">klik untuk booking!</a>
               </div>
             </div>
             <div
@@ -2083,53 +1790,27 @@
               "
             >
               <div class="hero-content">
-                <h1 class="hero-title">terapi fashdu</h1>
-                                  <p class="hero-text">
-                    teknik pengeluaran darah kuno yang dirancang untuk membersihkan tubuh dari racun, melancarkan sirkulasi, dan mengembalikan keseimbangan energi. Sebagai bagian dari warisan thibbun nabawi.
-                </p>
-                <a href="info.html" class="hero-btn">klik untuk info & booking!</a>
+                <h1 class="hero-title">PROFESIONAL</h1>
+                <a href="info.html" class="hero-btn">klik untuk booking!</a>
               </div>
             </div>
             <div class="hero-nav"></div>
           </div>
           </div>
-            <div class="quote-container">
-                <div class="steel-board">
-                    <!-- Ceiling mounts -->
-                    <div class="ceiling-mount ceiling-mount-left"></div>
-                    <div class="ceiling-mount ceiling-mount-right"></div>
-                    
-                    <!-- Chains -->
-                    <div class="chain chain-left" id="leftChain"></div>
-                    <div class="chain chain-right" id="rightChain"></div>
-                    
-                    <!-- Chain mounts on board -->
-                    <div class="chain-mount chain-mount-left"></div>
-                    <div class="chain-mount chain-mount-right"></div>
-                    
-                    <!-- Steel board faces -->
-                    <div class="steel-face">
-                        <div class="steel-texture"></div>
-                        <!-- Rivets -->
-                        <div class="rivet" style="top: 15px; left: 15px"></div>
-                        <div class="rivet" style="top: 15px; right: 15px"></div>
-                        <div class="rivet" style="bottom: 15px; left: 15px"></div>
-                        <div class="rivet" style="bottom: 15px; right: 15px"></div>
-                    </div>
-                    
-                    <!-- Steel edges -->
-                    <div class="steel-edge edge-top"></div>
-                    <div class="steel-edge edge-bottom"></div>
-                    <div class="steel-edge edge-left"></div>
-                    <div class="steel-edge edge-right"></div>
-                    
-                    <!-- Quote text -->
-                    <p class="quote-text">Rasulullah ﷺ bersabda:
-                        "Allah tidak menurunkan suatu penyakit kecuali Dia juga menurunkan obat untuknya."
-                        (HR. Bukhari, no. 5678).</p>
+          <div class="container">
+            <div class="h34d3r">
+                <div class="circle-bg">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="text-container">
+                    <div class="h34d3r-good">Pilihan Terapi</div>
+                    <div class="h34d3r-best">Beberapa jenis terapi yang tersedia di Griya Sehat Sumbersuci</div>
                 </div>
             </div>
-        
+        </div>
             <section class="therapy-section">
                 <div class="containers">
                     <div class="therapy-grid">
@@ -2958,24 +2639,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateTooltip();
             setInterval(updateTooltip, 60000); // Update every minute
         });
-                // Create chain links dynamically
-                function createChainLinks() {
-            const chains = document.querySelectorAll('.chain');
-            const numberOfLinks = 6;
-
-            chains.forEach(chain => {
-                for(let i = 0; i < numberOfLinks; i++) {
-                    const link = document.createElement('div');
-                    link.className = 'chain-link';
-                    chain.appendChild(link);
-                }
-            });
-        }
-
-        // Initialize
-        window.onload = function() {
-            createChainLinks();
-        };
         function toggleCard(card) {
             const wasActive = card.classList.contains('active');
             
