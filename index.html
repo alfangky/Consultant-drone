@@ -37,6 +37,109 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+.containerx {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.h34d3r {
+    background: #148f1e;
+    padding: clamp(20px, 5vw, 40px);
+    position: relative;
+    overflow: hidden;
+}
+
+.h34d3r::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+    z-index: 1;
+}
+
+.h34d3r-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.h34d3r-good {
+    color: #ffffff;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    transform: translateY(0);
+    transition: var(--transition);
+    text-align: center;
+    font-family:sans-serif;
+}
+
+.h34d3r-best {
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 400;
+    max-width: 600px;
+    position: relative;
+    padding-left: 15px;
+    border-left: 3px solid rgba(255,255,255,0.6);
+    transition: var(--transition);
+}
+
+/* Hover Effects */
+.h34d3r:hover .h34d3r-good {
+    transform: translateY(-2px);
+}
+
+.h34d3r:hover .h34d3r-best {
+    border-left-color: var(--text-light);
+}
+
+/* Card Effect */
+.h34d3r {
+    border-radius: 12px;
+    box-shadow: 
+        0 4px 6px -1px rgba(0,0,0,0.1),
+        0 2px 4px -1px rgba(0,0,0,0.06);
+    transition: var(--transition);
+}
+
+.h34d3r:hover {
+    box-shadow: 
+        0 10px 15px -3px rgba(0,0,0,0.1),
+        0 4px 6px -2px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .h34d3r {
+        border-radius: 8px;
+    }
+    
+    .h34d3r-content {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .h34d3r {
+        padding: 20px;
+    }
+    
+    .h34d3r-best {
+        padding-left: 10px;
+    }
+}
                 .quote-container {
             position: relative;
             padding-top: 40px;
@@ -176,7 +279,7 @@
 
         .chain {
             position: absolute;
-            top: -115px;
+            top: -10px;
             width: 5px;
             height: 170px;
             display: flex;
@@ -199,7 +302,7 @@
 
         .chain-link {
             width: 20px;
-            height: 30px;
+            height: 50px;
             margin: -6px 0;
             background: linear-gradient(
                 135deg,
@@ -238,7 +341,7 @@
 
         .ceiling-mount {
             position: absolute;
-            top: -150px;
+            top: -40px;
             width: 80px;
             height: 30px;
             background: linear-gradient(to bottom, #969691, #000000);
@@ -322,13 +425,13 @@
 
             .chain {
                 height: 80px;
-                top: -80px;
+                top: -25px;
             }
 
             .ceiling-mount {
-                top: -105px;
+                top: -43px;
                 width: 50px;
-                height: 20px;
+                height: 15px;
             }
 
             .chain-mount {
@@ -1038,21 +1141,6 @@
           font-size: 0.9rem;
         }
       }
-
-
-        .headerx {
-            text-align: center;
-            background: #f8f9fa;
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .headerx h1 {
-            color: #000000;
-            font-size: 24px;
-            font-weight: 700;
-            font-style:initial;
-        }
 
         .map-container {
             position: relative;
@@ -2098,10 +2186,6 @@
                                             <li>Perbaikan metabolisme</li>
                                             <li>Peremajaan sel darah</li>
                                         </ul>
-                                        <div class="treatment-info">
-                                            <div class="treatment-time">⏱️ Durasi: 30-45 menit</div>
-                                            <div class="price-indicator">Rp. 200.000</div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2190,10 +2274,6 @@
                 </div>
               </div>
             <div class="containerx">
-                <div class="section-title">
-                    <h1>Lokasi Griya Sehat Sumbersuci</h1>
-                </div>
-                
                 <div class="content">
                     <div class="map-container" id="mapContainer">
                         <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d760.2195349149476!2d112.55733992998724!3d-6.919819031134589!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77e10f75bc1fc1%3A0xdc4298b1eeff36d!2sRumah%20Terapi%20Ma&#39;ul%20Hayat!5e1!3m2!1sid!2sid!4v1732393780471!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
