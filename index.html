@@ -1038,319 +1038,7 @@
           font-size: 0.9rem;
         }
       }
-      * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
 
-    :root {
-      --primary-color:rgba(87, 167, 56, 0.95);
-      --secondary-color: #1e40af;
-      --text-color: #1f2937;
-      --light-gray: #f3f4f6;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-
-    .products-section {
-      max-width: 1400px;
-      margin: 3rem auto;
-      padding: 2rem;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 4rem;
-      font-size: 2rem;
-      color: #000000;
-      font-weight: 650;
-      font-style: oblique;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: var(--primary-color);
-      border-radius: 2px;
-    }
-
-    .products-container {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-      margin-top: 50px;
-    }
-
-    .product-card {
-      display: flex;
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateX(-50px);
-      animation: slideInFromLeft 0.8s ease forwards;
-    }
-
-    .product-card:nth-child(even) {
-      flex-direction: row-reverse;
-      transform: translateX(50px);
-      animation: slideInFromRight 0.8s ease forwards;
-    }
-
-    .product-image-container {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      min-height: 400px;
-      max-width: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f8f9fa;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 1rem;
-      transition: var(--transition);
-    }
-
-    .product-image.landscape {
-      width: 100%;
-      height: auto;
-    }
-
-    .product-image.portrait {
-      height: 100%;
-      width: auto;
-    }
-
-    .product-content {
-      flex: 1;
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .product-tag {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: var(--primary-color);
-      color: white;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards 0.3s;
-    }
-
-    .product-title {
-      font-size: 2rem;
-      color: var(--text-color);
-      margin-bottom: 1rem;
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards 0.4s;
-    }
-
-    .product-description {
-      color: #666;
-      margin-bottom: 2rem;
-      line-height: 1.8;
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards 0.5s;
-    }
-
-    .features-list {
-      list-style: none;
-      margin-bottom: 2rem;
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards 0.6s;
-    }
-
-    .features-list li {
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      color: #4b5563;
-    }
-
-    .features-list li::before {
-      content: '✓';
-      color: var(--primary-color);
-      margin-right: 10px;
-      font-weight: bold;
-    }
-
-    .product-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: var(--primary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: var(--transition);
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards 0.7s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-button::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: -100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: 0.5s;
-    }
-
-    .product-button:hover {
-      background: var(--secondary-color);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
-    }
-
-    .product-button:hover::after {
-      left: 100%;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      max-width: 500px;
-      width: 90%;
-      transform: scale(0.7);
-      transition: transform 0.3s ease;
-    }
-
-    .modal.active {
-      display: flex;
-      opacity: 1;
-    }
-
-    .modal.active .modal-content {
-      transform: scale(1);
-    }
-
-    .close-modal {
-      float: right;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: #666;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideInFromLeft {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInFromRight {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 968px) {
-      .product-card, 
-      .product-card:nth-child(even) {
-        flex-direction: column;
-        margin: 0 1rem;
-      }
-
-      .product-image-container {
-        min-height: 300px;
-        max-width: 100%;
-      }
-
-      .product-image {
-        padding: 0.5rem;
-      }
-
-      .product-content {
-        padding: 2rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
-
-      .product-title {
-        font-size: 1.5rem;
-      }
-
-      .products-container {
-        gap: 2rem;
-      }
-    }
-
-        .containers {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.6s ease-out forwards;
-        }
 
         .headerx {
             text-align: center;
@@ -1981,6 +1669,179 @@
         grid-template-columns: repeat(4, 1fr);
       }
     }
+
+        .therapy-section {
+            padding: 40px 20px 80px;
+            background: #ffffff;
+        }
+
+        .therapy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .therapy-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .therapy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .therapy-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .therapy-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .therapy-card:hover .therapy-image img {
+            transform: scale(1.1);
+        }
+
+        .therapy-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            font-size: 1.5em;
+            font-weight: 600;
+            transform: translateY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .therapy-card:hover .therapy-title {
+            transform: translateY(-5px);
+        }
+
+        .therapy-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .therapy-content-inner {
+            padding: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .therapy-card.active .therapy-content {
+            max-height: 1000px;
+        }
+
+        .therapy-card.active .therapy-content-inner {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .therapy-description {
+            color: #666666;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 1.05em;
+        }
+
+        .benefits {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .benefits li {
+            color: #4a4a4a;
+            margin: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 1em;
+        }
+
+        .benefits li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #2E8B57;
+            font-size: 1.1em;
+        }
+
+        .treatment-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .treatment-time {
+            color: #666666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitles {
+                font-size: 1.1em;
+            }
+
+            .therapy-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .therapy-image {
+                height: 240px;
+            }
+
+            .therapy-title {
+                font-size: 1.3em;
+                padding: 24px;
+            }
+
+            .therapy-content-inner {
+                padding: 24px;
+            }
+        }
+
     </style>
 </head>
 <body class="min-h-screen">
@@ -2144,8 +2005,6 @@
             <div class="hero-nav"></div>
           </div>
           </div>
-
-          <section class="products-section">
             <div class="quote-container">
                 <div class="steel-board">
                     <!-- Ceiling mounts -->
@@ -2182,74 +2041,131 @@
                         (HR. Bukhari, no. 5678).</p>
                 </div>
             </div>
-              <div class="products-container">
-                
-                <!-- Product 1 -->
-                <div class="product-card">
-                  <div class="product-content">
-                    <span class="product-tag">Terapi Bekam</span>
-                    <h3 class="product-title">BEKAM / HIJAMAH</h3>
-                    <p class="product-description">bekam (hijamah) adalah salah satu metode pengobatan yang dianjurkan dan memiliki dasar dari ajaran Nabi Muhammad SAW. Bekam dianggap sebagai bentuk ikhtiar untuk menjaga kesehatan tubuh dan menyembuhkan penyakit dengan izin Allah.</p>
-                    <h2 class="product-description">Manfaat Bekam</h2>
-                    <ul class="features-list">
-                      <li>Melancarkan sirkulasi darah</li>
-                      <li>Membantu detoksifikasi tubuh</li>
-                      <li>Meningkatkan Energi dan Vitalitas</li>
-                      <li>Dan masih banyak manfaat lainnya.</li>
-                    </ul>
-                  </div>
-                  <div class="product-image-container">
-                    <img src="bekams.jpg" alt="Premium Headphones" class="product-image">
-                  </div>
+        
+            <section class="therapy-section">
+                <div class="containers">
+                    <div class="therapy-grid">
+                        <!-- Bekam Card -->
+                        <div class="therapy-card" onclick="toggleCard(this)">
+                            <div class="therapy-image">
+                                <img src="bekamku.webp" alt="Bekam Therapy">
+                                <div class="therapy-title">Bekam</div>
+                            </div>
+                            <div class="therapy-content">
+                                <div class="therapy-content-inner">
+                                    <p class="therapy-description">Metode detoksifikasi alami yang telah dipraktikkan selama berabad-abad, menggunakan teknik vakum modern untuk mengoptimalkan hasil terapi, bekam juga termasuk dalam Thibbun Nabawi</p>
+                                    <ul class="benefits">
+                                        <li>Sirkulasi darah optimal</li>
+                                        <li>Detoksifikasi menyeluruh</li>
+                                        <li>Peningkatan sistem imun</li>
+                                        <li>Relaksasi otot mendalam</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Fashdu Card -->
+                        <div class="therapy-card" onclick="toggleCard(this)">
+                            <div class="therapy-image">
+                                <img src="fashduku.webp" alt="Fashdu Modern">
+                                <div class="therapy-title">Fashdu</div>
+                            </div>
+                            <div class="therapy-content">
+                                <div class="therapy-content-inner">
+                                    <p class="therapy-description">Teknik pembersihan darah yang dimodernisasi dengan peralatan steril dan prosedur terstandar untuk keamanan maksimal.</p>
+                                    <ul class="benefits">
+                                        <li>Normalisasi tekanan darah</li>
+                                        <li>Pemurnian darah optimal</li>
+                                        <li>Perbaikan metabolisme</li>
+                                        <li>Peremajaan sel darah</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+        
+                              <!-- Fashdu Card -->
+                              <div class="therapy-card" onclick="toggleCard(this)">
+                                <div class="therapy-image">
+                                    <img src="terapi.jpg" alt="Fashdu Modern">
+                                    <div class="therapy-title">Pijat Refleksi</div>
+                                </div>
+                                <div class="therapy-content">
+                                    <div class="therapy-content-inner">
+                                        <p class="therapy-description">Teknik pembersihan darah yang dimodernisasi dengan peralatan steril dan prosedur terstandar untuk keamanan maksimal.</p>
+                                        <ul class="benefits">
+                                            <li>Normalisasi tekanan darah</li>
+                                            <li>Pemurnian darah optimal</li>
+                                            <li>Perbaikan metabolisme</li>
+                                            <li>Peremajaan sel darah</li>
+                                        </ul>
+                                        <div class="treatment-info">
+                                            <div class="treatment-time">⏱️ Durasi: 30-45 menit</div>
+                                            <div class="price-indicator">Rp. 200.000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                              <!-- Fashdu Card -->
+                              <div class="therapy-card" onclick="toggleCard(this)">
+                                <div class="therapy-image">
+                                    <img src="tulang.jpg" alt="Fashdu Modern">
+                                    <div class="therapy-title">Pembetulan tulang</div>
+                                </div>
+                                <div class="therapy-content">
+                                    <div class="therapy-content-inner">
+                                        <p class="therapy-description">Terapi pembetulan tulang adalah metode perawatan untuk menyesuaikan posisi tulang dan sendi, terutama di tulang belakang, guna mengembalikan keseimbangan tubuh.</p>
+                                        <ul class="benefits">
+                                            <li>Meredakan nyeri (punggung, leher, sendi).</li>
+                                            <li>Memperbaiki postur tubuh.</li>
+                                            <li>Meningkatkan mobilitas dan fungsi saraf.</li>
+                                            <li>Mendukung kesehatan dan kesejahteraan.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        <!-- Ruqyah Card -->
+                        <div class="therapy-card" onclick="toggleCard(this)">
+                            <div class="therapy-image">
+                                <img src="ruqyah.webp" alt="Ruqyah Syar'iyyah">
+                                <div class="therapy-title">Ruqyah Syar'iyyah</div>
+                            </div>
+                            <div class="therapy-content">
+                                <div class="therapy-content-inner">
+                                    <p class="therapy-description">Terapi spiritual yang menggabungkan ayat-ayat Al-Qur'an dengan teknik relaksasi modern untuk penyembuhan holistik.</p>
+                                    <ul class="benefits">
+                                        <li>Ketenangan jiwa mendalam</li>
+                                        <li>Penyembuhan spiritual</li>
+                                        <li>Harmoni mental-emosional</li>
+                                        <li>Penguatan iman</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Thibbun Nabawi Card -->
+                        <div class="therapy-card" onclick="toggleCard(this)">
+                            <div class="therapy-image">
+                                <img src="akupunktur.jpg" alt="Thibbun Nabawi Modern">
+                                <div class="therapy-title">Akupunktur</div>
+                            </div>
+                            <div class="therapy-content">
+                                <div class="therapy-content-inner">
+                                    <p class="therapy-description">Terapi tradisional yang menggunakan jarum tipis untuk merangsang titik-titik tertentu pada tubuh guna memulihkan keseimbangan energi dan kesehatan.</p>
+                                    <ul class="benefits">
+                                        <li>Meredakan nyeri (otot, sendi, migrain).</li>
+                                        <li>Mengurangi stres dan meningkatkan relaksasi.</li>
+                                        <li>Membantu masalah pencernaan dan tidur.</li>
+                                        <li>Mendukung pemulihan tubuh secara alami.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-          
-                <!-- Product 2 -->
-                <div class="product-card">
-                  <div class="product-content">
-                    <span class="product-tag">Terapi Akupunktur</span>
-                    <h3 class="product-title">Akupunktur</h3>
-                    <p class="product-description">Akupunktur adalah metode pengobatan tradisional yang berasal dari Tiongkok, yang melibatkan penusukan jarum tipis pada titik-titik tertentu di tubuh. Teknik ini bertujuan untuk merangsang aliran energi atau "Qi" (Chi), yang diyakini mengalir melalui jalur energi yang disebut meridian. Dalam pengobatan tradisional Tiongkok, akupunktur digunakan untuk mengembalikan keseimbangan energi tubuh dan meningkatkan kesehatan secara keseluruhan</p>
-                    <h2 class="product-description">Manfaat Akupunktur</h2>
-                    <ul class="features-list">
-                      <li>Mengurangi Stres dan Kecemasan</li>
-                      <li>Meredakan Nyeri</li>
-                      <li>Membantu Pemulihan dari Cedera</li>
-                      <li>Dan masih banyak manfaat lainnya.</li>
-                    </ul>
-                  </div>
-                  <div class="product-image-container">
-                    <img src="puntur.jpg" alt="Smart Watch" class="product-image">
-                  </div>
-                </div>
-          
-                <!-- Product 3 -->
-                <div class="product-card">
-                  <div class="product-content">
-                    <span class="product-tag">Terapi Fashdu</span>
-                    <h3 class="product-title">Fashdu</h3>
-                    <p class="product-description">Fashdu adalah salah satu metode pengobatan tradisional yang bertujuan untuk membuang darah kotor dari tubuh. Dalam istilah medis, ini disebut sebagai phlebotomy atau terapi pembuluh darah. Metode ini dilakukan dengan membuat sayatan kecil pada pembuluh darah tertentu untuk mengeluarkan darah yang dianggap mengandung racun atau zat yang berbahaya bagi tubuh. Fashdu memiliki akar dari berbagai tradisi pengobatan kuno, termasuk pengobatan Islam dan Yunani.</p>
-                    <h2 class="product-description">Manfaat Fashdu</h2>
-                    <ul class="features-list">
-                      <li>Membantu Melancarkan Sirkulasi Darah</li>
-                      <li>Mengurangi Tekanan Darah Tinggi</li>
-                      <li>Meningkatkan Sistem Kekebalan Tubuh</li>
-                      <li>Dan masih banyak manfaat lainnya.</li>
-                    </ul>
-                  </div>
-                  <div class="product-image-container">
-                    <img src="fashdu.jpg" alt="Power Bank" class="product-image">
-                  </div>
-                </div>
-              </div>
             </section>
-          
-            <!-- Modal -->
-            <div class="modal" id="productModal">
-              <div class="modal-content">
-                <span class="close-modal" onclick="closeModal()">&times;</span>
-                <div id="modalContent"></div>
-              </div>
-            </div>
+        
             <div class="team-container-ant">
                 <!-- New Header Section -->
                 <div class="team-header-ant">
@@ -2782,113 +2698,7 @@
                 });
             });
         });
-        const products = {
-      1: {
-        title: "Wireless Pro Headphones",
-        features: [
-          "Studio-quality sound with 40mm drivers",
-          "Advanced active noise cancellation",
-          "40-hour battery life with quick charge",
-          "Premium memory foam ear cushions",
-          "Touch-sensitive controls",
-          "Multi-device connectivity"
-        ],
-        specs: {
-          batteryLife: "40 hours",
-          chargingTime: "15 minutes for 5 hours playback",
-          connectivity: "Bluetooth 5.2",
-          weight: "250g"
-        }
-      },
-      2: {
-        title: "Elite Fitness Watch",
-        features: [
-          "Advanced heart rate monitoring",
-          "Built-in GPS with route tracking",
-          "Sleep quality analysis",
-          "50+ sport modes",
-          "7-day battery life",
-          "5ATM water resistance"
-        ],
-        specs: {
-          display: "1.4\" AMOLED",
-          battery: "7 days typical use",
-          sensors: "Heart rate, SpO2, Temperature",
-          waterResistance: "50m"
-        }
-      },
-      3: {
-        title: "Ultra Power Bank",
-        features: [
-          "25,000mAh high-capacity battery",
-          "65W USB-C Power Delivery",
-          "Charge 3 devices simultaneously",
-          "LCD power display",
-          "Airplane-safe design",
-          "Quick charge technology"
-        ],
-        specs: {
-          capacity: "25,000mAh",
-          input: "USB-C PD 65W",
-          output: "USB-C PD 65W, USB-A 18W",
-          size: "Compact design"
-        }
-      }
-    };
 
-    function showDetails(productId) {
-      const product = products[productId];
-      const modal = document.getElementById('productModal');
-      const modalContent = document.getElementById('modalContent');
-      
-      const content = `
-        <h2 style="color: var(--text-color); margin-bottom: 1rem;">${product.title}</h2>
-        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Key Features</h3>
-        <ul style="margin-bottom: 2rem;">
-          ${product.features.map(feature => `<li style="margin-bottom: 0.5rem;">• ${feature}</li>`).join('')}
-        </ul>
-        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Technical Specifications</h3>
-        <ul>
-          ${Object.entries(product.specs).map(([key, value]) => 
-            `<li style="margin-bottom: 0.5rem;"><strong>${key}:</strong> ${value}</li>`
-          ).join('')}
-        </ul>
-      `;
-      
-      modalContent.innerHTML = content;
-      modal.classList.add('active');
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('productModal');
-      modal.classList.remove('active');
-    }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-      const modal = document.getElementById('productModal');
-      if (event.target == modal) {
-        closeModal();
-      }
-    }
-
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.visibility = 'visible';
-          }
-        });
-      },
-      {
-        threshold: 0.1
-      }
-    );
-
-    document.querySelectorAll('.product-card').forEach(card => {
-      observer.observe(card);
-    });
     document.addEventListener('DOMContentLoaded', () => {
             const mapContainer = document.getElementById('mapContainer');
             const expandBtn = document.getElementById('expandBtn');
@@ -3086,6 +2896,65 @@ document.addEventListener('DOMContentLoaded', function() {
         window.onload = function() {
             createChainLinks();
         };
+        function toggleCard(card) {
+            const wasActive = card.classList.contains('active');
+            
+            // Close all cards
+            document.querySelectorAll('.therapy-card').forEach(c => {
+                c.classList.remove('active');
+                const content = c.querySelector('.therapy-content');
+                const inner = c.querySelector('.therapy-content-inner');
+                inner.style.opacity = '0';
+                inner.style.transform = 'translateY(20px)';
+                content.style.maxHeight = null;
+            });
+            
+            // Open clicked card if it wasn't active
+            if (!wasActive) {
+                card.classList.add('active');
+                const content = card.querySelector('.therapy-content');
+                const inner = card.querySelector('.therapy-content-inner');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                setTimeout(() => {
+                    inner.style.opacity = '1';
+                    inner.style.transform = 'translateY(0)';
+                }, 100);
+            }
+        }
+
+        // Smooth scroll animation
+        const cards = document.querySelectorAll('.therapy-card');
+        
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px'
+            }
+        );
+
+        // Apply observer to each card with staggered delay
+        cards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 100}ms`;
+            observer.observe(card);
+        });
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                cards.forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            }, 100);
+        });
     </script>
 </body>
 </html>
