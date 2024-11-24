@@ -610,235 +610,6 @@
             }
         }
 
-      .hero-wrapper {
-        padding-top: 70px;
-        position: relative;
-        height: 100vh;
-        width: 100%;
-        overflow: hidden;
-        background-color: #000;
-      }
-
-      .hero-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        visibility: hidden;
-        transform: scale(1.1);
-        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-align: center;
-        padding: 20px;
-      }
-
-      .hero-slide.active {
-        opacity: 1;
-        visibility: visible;
-        transform: scale(1);
-      }
-
-      .hero-slide::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 1;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-      }
-
-      .hero-slide.active .hero-content {
-        animation: contentFadeIn 1s ease forwards;
-      }
-
-      .hero-title {
-        font-size: 4rem;
-        margin-bottom: 1.5rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      .hero-slide.active .hero-title {
-        animation: titleSlideUp 0.8s ease 0.5s forwards;
-      }
-
-      .hero-text {
-        font-size: 1.3rem;
-        margin-bottom: 2.5rem;
-        line-height: 1.7;
-        opacity: 0;
-      }
-
-      .hero-slide.active .hero-text {
-        animation: textFadeIn 0.8s ease 0.7s forwards;
-      }
-
-      .hero-btn {
-        display: inline-block;
-        padding: 15px 20px;
-        background: transparent;
-        color: white;
-        text-decoration: none;
-        border: 2px solid white;
-        border-radius: 30px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.4s ease;
-        opacity: 0;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero-btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        transform: translateX(-100%);
-        transition: transform 0.4s ease;
-        z-index: -1;
-      }
-
-      .hero-btn:hover {
-        color: #000;
-      }
-
-      .hero-btn:hover::before {
-        transform: translateX(0);
-      }
-
-      .hero-slide.active .hero-btn {
-        animation: buttonFadeIn 0.8s ease 0.9s forwards;
-      }
-
-      .hero-nav {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 12px;
-        z-index: 3;
-      }
-
-      .hero-dot {
-        width: 40px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.3);
-        cursor: pointer;
-        transition: all 0.4s ease;
-      }
-
-      .hero-dot.active {
-        background: rgba(255, 255, 255, 0.8);
-      }
-
-      .hero-dot.active::after {
-        content: "";
-        display: block;
-        height: 100%;
-        width: 100%;
-        background: white;
-        animation: progressBar 5s linear;
-      }
-
-      @keyframes contentFadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes titleSlideUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes textFadeIn {
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes buttonFadeIn {
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes progressBar {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .hero-title {
-          font-size: 1rem;
-        }
-
-        .hero-text {
-          font-size: 1.1rem;
-          margin-bottom: 2rem;
-        }
-
-        .hero-btn {
-          padding: 10px 10px;
-          font-size: 1rem;
-        }
-
-        .hero-dot {
-          width: 30px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero-title {
-          font-size: 2rem;
-          letter-spacing: 1px;
-        }
-
-        .hero-text {
-          font-size: 1rem;
-          line-height: 1.5;
-        }
-
-        .hero-btn {
-          padding: 5px 25px;
-          font-size: 0.9rem;
-        }
-      }
-
         .map-container {
             position: relative;
             height: 400px;
@@ -1456,6 +1227,9 @@
     }
 
         .therapy-section {
+            background: #ffffff;
+        }
+        .therapy-sectionz {
             padding: 40px 20px 80px;
             background: #ffffff;
         }
@@ -1626,7 +1400,315 @@
                 padding: 24px;
             }
         }
+        .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6f9fc 0%, #f1f4f9 100%);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px; /* Added to prevent content from hiding behind navbar */
+}
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+}
+
+.left-side, .right-side {
+    flex: 1;
+}
+
+.welcome-text {
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #24be5f 0%, #225529 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.8s ease-out;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: 650;
+}
+
+.sub-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 2.5rem;
+    color: #555;
+    line-height: 1.8;
+    animation: fadeInUp 1s ease-out;
+}
+
+.cta-container {
+    display: flex;
+    gap: 1rem;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #24be5f 0%, #225529 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(118, 120, 237, 0.2);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    white-space: nowrap;
+}
+
+.secondary-button {
+    background: white;
+    color: #2d2f8f;
+    border: 2px solid #e1e1fe;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(118, 120, 237, 0.3);
+}
+
+.slider-container {
+    background: #336135;
+    padding: 0.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    animation: slideIn 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 400px;
+}
+
+.slider-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(135deg, #24be5f 0%, #225529 100%);
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.8rem;
+    text-align: center;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    backdrop-filter: blur(5px);
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 2;
+}
+
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 60px;
+        min-height: auto;
+    }
+
+    .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .left-side {
+        padding-right: 0;
+    }
+    
+    .welcome-text {
+        margin-bottom: 1rem;
+    }
+    
+    .sub-text {
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-container {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+    }
+    
+    .slider-container {
+        height: 300px;
+        padding: 0.25rem;
+        margin: 0 0.5rem;
+    }
+    
+    .slide img {
+        border-radius: 8px;
+    }
+    
+    .slide-caption {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+    
+    .slider-nav {
+        bottom: 40px;
+    }
+    
+    .slider-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .welcome-text {
+        font-size: 1.8rem;
+    }
+    
+    .sub-text {
+        font-size: 0.9rem;
+    }
+    
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    .slider-container {
+        height: 250px;
+        padding: 0.25rem;
+    }
+
+    .right-side {
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+}
     </style>
 </head>
 <body class="min-h-screen">
@@ -1746,50 +1828,60 @@
                                     </a>
                                 </div>
                             </nav>
-      
-          <div class="hero-wrapper">
-            <div
-              class="hero-slide active"
-              style="background: url('bekamz.png') center/cover no-repeat"
-            >
-              <div class="hero-content">
-                <h1 class="hero-title">GRIYA SEHAT SUMBERSUCI</h1>
-                <a href="info.html" class="hero-btn">klik untuk booking!</a>
-              </div>
-            </div>
-            <div
-              class="hero-slide"
-              style="background: url('akupuntur1.jpg') center/cover no-repeat"
-            >
-              <div class="hero-content">
-                <h1 class="hero-title">BERPENGALAMAN</h1>
-                <a href="info.html" class="hero-btn">klik untuk booking!</a>
-              </div>
-            </div>
-            <div
-              class="hero-slide"
-              style="
-                background: url('fashdus.jpg')
-                  center/cover no-repeat;
-              "
-            >
-              <div class="hero-content">
-                <h1 class="hero-title">PROFESIONAL</h1>
-                <a href="info.html" class="hero-btn">klik untuk booking!</a>
-              </div>
-            </div>
-            <div class="hero-nav"></div>
-          </div>
-          </div>
-          <div class="containerz">
-            <div class="h34d3r">
-                <div class="text-container">
-                    <div class="h34d3r-good">Pilihan Terapi</div>
-                    <div class="h34d3r-best">Beberapa jenis terapi yang tersedia di Griya Sehat Sumbersuci</div>
-                </div>
-            </div>
-        </div>
+                            <section class="hero">
+                                <div class="container">
+                                    <div class="left-side">
+                                        <h1 class="welcome-text">Selamat datang di Griya Sehat Sumbersuci</h1>
+                                        <p class="sub-text">
+                                            Temukan kesehatan dan kesejahteraan Anda bersama kami. Kami menyediakan layanan profesional dengan pendekatan holistik untuk kebutuhan kesehatan Anda.
+                                        </p>
+                                        <div class="cta-container">
+                                            <a href="info.html" class="cta-button">
+                                                <i class="fas fa-calendar-check"></i>
+                                                Mau booking jadwal?
+                                            </a>
+                                            <button id="robot" class="cta-button secondary-button">
+                                                <i class="fas fa-robot"></i>
+                                                Chat dengan bot kami
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="right-side">
+                                        <div class="slider-container">
+                                            <div class="slider">
+                                                <div class="slide active">
+                                                    <img src="bekam.jpg" alt="Facility Image 1" loading="lazy">
+                                                    <div class="slide-caption">Modern Therapy Rooms</div>
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="fashdu.jpg" alt="Facility Image 2" loading="lazy">
+                                                    <div class="slide-caption">Professional Healthcare Team</div>
+                                                </div>
+                                                <div class="slide">
+                                                    <img src="bekamz.png" alt="Facility Image 3" loading="lazy">
+                                                    <div class="slide-caption">Peaceful Healing Environment</div>
+                                                </div>
+                                            </div>
+                                            <div class="slider-nav">
+                                                <div class="slider-dot active"></div>
+                                                <div class="slider-dot"></div>
+                                                <div class="slider-dot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
             <section class="therapy-section">
+                <div class="containerz">
+                    <div class="h34d3r">
+                        <div class="text-container">
+                            <div class="h34d3r-good">Pilihan Terapi</div>
+                            <div class="h34d3r-best">Beberapa jenis terapi yang tersedia di Griya Sehat Sumbersuci</div>
+                        </div>
+                    </div>
+                </div>
+                <section class="therapy-sectionz">
                 <div class="containers">
                     <div class="therapy-grid">
                         <!-- Bekam Card -->
@@ -2141,270 +2233,6 @@
                                 // Initialize navbar state
                                 handleScroll();
                             });
-      document.addEventListener("DOMContentLoaded", () => {
-        const slides = document.querySelectorAll(".hero-slide");
-        const nav = document.querySelector(".hero-nav");
-        let currentSlide = 0;
-        let isAnimating = false;
-        let slideInterval;
-
-        // Create navigation dots
-        slides.forEach((_, index) => {
-          const dot = document.createElement("div");
-          dot.classList.add("hero-dot");
-          if (index === 0) dot.classList.add("active");
-          dot.addEventListener("click", () => goToSlide(index));
-          nav.appendChild(dot);
-        });
-
-        function updateSlides(nextIndex) {
-          if (isAnimating || nextIndex === currentSlide) return;
-          isAnimating = true;
-
-          // Remove active classes
-          slides[currentSlide].classList.remove("active");
-          nav.children[currentSlide].classList.remove("active");
-
-          // Add active classes to next slide
-          slides[nextIndex].classList.add("active");
-          nav.children[nextIndex].classList.add("active");
-
-          currentSlide = nextIndex;
-
-          // Reset animation lock after transition
-          setTimeout(() => {
-            isAnimating = false;
-          }, 1200);
-        }
-
-        function nextSlide() {
-          const nextIndex = (currentSlide + 1) % slides.length;
-          updateSlides(nextIndex);
-        }
-
-        function goToSlide(index) {
-          if (index >= 0 && index < slides.length) {
-            updateSlides(index);
-            resetInterval();
-          }
-        }
-
-        function resetInterval() {
-          clearInterval(slideInterval);
-          slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        // Initialize auto-sliding
-        resetInterval();
-
-        // Touch support
-        let touchStart = null;
-        const hero = document.querySelector(".hero-wrapper");
-
-        hero.addEventListener(
-          "touchstart",
-          (e) => {
-            touchStart = e.touches[0].clientX;
-          },
-          { passive: true }
-        );
-
-        hero.addEventListener(
-          "touchend",
-          (e) => {
-            if (!touchStart) return;
-
-            const touchEnd = e.changedTouches[0].clientX;
-            const diff = touchStart - touchEnd;
-
-            if (Math.abs(diff) > 50) {
-              const nextIndex =
-                diff > 0
-                  ? (currentSlide + 1) % slides.length
-                  : (currentSlide - 1 + slides.length) % slides.length;
-              goToSlide(nextIndex);
-            }
-
-            touchStart = null;
-          },
-          { passive: true }
-        );
-
-        // Pause on hover
-        hero.addEventListener("mouseenter", () => clearInterval(slideInterval));
-        hero.addEventListener("mouseleave", resetInterval);
-
-        // Keyboard navigation
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowLeft") {
-            goToSlide((currentSlide - 1 + slides.length) % slides.length);
-          } else if (e.key === "ArrowRight") {
-            goToSlide((currentSlide + 1) % slides.length);
-          }
-        });
-      });
-      // Initialize GSAP animations
-      document.addEventListener("DOMContentLoaded", () => {
-        // Animate header
-        gsap.to(".header", {
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-        });
-
-        // Animate categories
-        gsap.to(".categories", {
-          opacity: 1,
-          duration: 1,
-          delay: 0.3,
-          ease: "power3.out",
-        });
-
-        // Animate drone cards
-        gsap.to(".drone-card", {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power3.out",
-          delay: 0.5,
-        });
-
-        // Category filter functionality
-        const categoryButtons = document.querySelectorAll(".category-btn");
-        const droneCards = document.querySelectorAll(".drone-card");
-
-        categoryButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            // Update active button state
-            categoryButtons.forEach((btn) => btn.classList.remove("active"));
-            button.classList.add("active");
-
-            // Get selected category
-            const category = button.textContent.toLowerCase();
-
-            // Animate cards based on category
-            droneCards.forEach((card) => {
-              const cardCategory = card
-                .querySelector(".drone-category")
-                .textContent.toLowerCase();
-
-              // If 'All Drones' is selected or categories match
-              if (
-                category === "all drones" ||
-                cardCategory.includes(category)
-              ) {
-                // Show card with animation
-                gsap.to(card, {
-                  opacity: 1,
-                  scale: 1,
-                  duration: 0.5,
-                  ease: "power2.out",
-                  display: "block",
-                });
-              } else {
-                // Hide card with animation
-                gsap.to(card, {
-                  opacity: 0,
-                  scale: 0.95,
-                  duration: 0.5,
-                  ease: "power2.out",
-                  display: "none",
-                });
-              }
-            });
-          });
-        });
-
-        // Booking button interactions
-        const bookButtons = document.querySelectorAll(".book-btn");
-        bookButtons.forEach((button) => {
-          if (!button.disabled) {
-            button.addEventListener("click", () => {
-              // Animation for button click
-              gsap.to(button, {
-                scale: 0.95,
-                duration: 0.1,
-                yoyo: true,
-                repeat: 1,
-                ease: "power2.out",
-              });
-
-              // Here you would typically handle the booking logic
-              const droneTitle = button
-                .closest(".drone-card")
-                .querySelector(".drone-title").textContent;
-              console.log(`Booking initiated for: ${droneTitle}`);
-            });
-
-            // Hover animations
-            button.addEventListener("mouseenter", () => {
-              gsap.to(button, {
-                scale: 1.05,
-                duration: 0.3,
-                ease: "power2.out",
-              });
-            });
-
-            button.addEventListener("mouseleave", () => {
-              gsap.to(button, {
-                scale: 1,
-                duration: 0.3,
-                ease: "power2.out",
-              });
-            });
-          }
-        });
-
-        // Card hover animations
-        droneCards.forEach((card) => {
-          card.addEventListener("mouseenter", () => {
-            const image = card.querySelector("img");
-            gsap.to(image, {
-              scale: 1.05,
-              duration: 0.3,
-              ease: "power2.out",
-            });
-          });
-
-          card.addEventListener("mouseleave", () => {
-            const image = card.querySelector("img");
-            gsap.to(image, {
-              scale: 1,
-              duration: 0.3,
-              ease: "power2.out",
-            });
-          });
-        });
-
-        // Smooth scroll for mobile devices
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-              behavior: "smooth",
-            });
-          });
-        });
-
-        // Add intersection observer for scroll animations
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = "translateY(0)";
-              }
-            });
-          },
-          {
-            threshold: 0.1,
-          }
-        );
-
-        // Observe all drone cards for scroll animations
-        droneCards.forEach((card) => observer.observe(card));
-      });
       document.addEventListener('DOMContentLoaded', () => {
             const mapContainer = document.getElementById('mapContainer');
             const expandBtn = document.getElementById('expandBtn');
@@ -2676,6 +2504,71 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }, 100);
         });
+        let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.slider-dot');
+
+// Add image loading error handling
+document.querySelectorAll('.slide img').forEach(img => {
+    img.onerror = function() {
+        this.src = 'fallback-image.jpg'; // Replace with your fallback image
+        this.alt = 'Image not available';
+        this.style.backgroundColor = '#f5f5f5';
+    };
+});
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentSlide].classList.add('active');
+}
+
+// Auto-advance slides
+setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 5000);
+
+// Dot navigation
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        showSlide(index);
+    });
+});
+
+// Consultation button
+document.querySelector('.secondary-button').addEventListener('click', () => {
+    alert('Coming soon!');
+});
+
+// Touch swipe functionality
+let touchStartX = 0;
+let touchEndX = 0;
+
+const slider = document.querySelector('.slider');
+
+slider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+slider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, false);
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe left
+        showSlide(currentSlide + 1);
+    }
+    if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe right
+        showSlide(currentSlide - 1);
+    }
+}
     </script>
 </body>
 </html>
